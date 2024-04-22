@@ -1,0 +1,86 @@
+<div>
+  <div>
+    <h1>
+      Social #<%= @the_social.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/socials">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_social/<%= @the_social.id %>">
+          Delete social
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Telegram
+      </dt>
+      <dd>
+        <%= @the_social.telegram %>
+      </dd>
+
+      <dt>
+        Twitter
+      </dt>
+      <dd>
+        <%= @the_social.twitter %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_social.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_social.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit social
+    </h2>
+
+    <form action="/modify_social/<%= @the_social.id %>"  method="post" >
+      <div>
+        <label for="telegram_box">
+          Telegram
+        </label>
+
+        <textarea id="telegram_box" name="query_telegram"><%= @the_social.telegram %></textarea>
+      </div>
+
+      <div>
+        <label for="twitter_box">
+          Twitter
+        </label>
+
+        <textarea id="twitter_box" name="query_twitter"><%= @the_social.twitter %></textarea>
+      </div>
+
+      <button>
+        Update social
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

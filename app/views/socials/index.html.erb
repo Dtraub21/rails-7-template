@@ -1,0 +1,102 @@
+<div>
+  <div>
+    <h1>
+      List of all socials
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new social
+    </h2>
+
+    <form action="/insert_social" method="post">
+      <div>
+        <label for="telegram_box">
+          Telegram
+        </label>
+
+        <textarea id="telegram_box" name="query_telegram" rows="3"></textarea>
+      </div>
+
+      <div>
+        <label for="twitter_box">
+          Twitter
+        </label>
+
+        <textarea id="twitter_box" name="query_twitter" rows="3"></textarea>
+      </div>
+
+      <button>
+        Create social
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table border="1">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Telegram
+        </th>
+
+        <th>
+          Twitter
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_socials.each do |a_social| %>
+      <tr>
+        <td>
+          <%= a_social.id %>
+        </td>
+
+        <td>
+          <%= a_social.telegram %>
+        </td>
+
+        <td>
+          <%= a_social.twitter %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(a_social.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(a_social.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/socials/<%= a_social.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>
